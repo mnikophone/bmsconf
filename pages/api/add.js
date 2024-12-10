@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     const user = req.body.user;
 
     const collection = db.collection("show"); // Replace with your collection name
-    const data = await collection.InsertOne({ ...user});
+    const data = await collection.insertOne({ ...user});
  
     if (data) {
       res.status(200).json({ success: true, data, stateR: "display" });

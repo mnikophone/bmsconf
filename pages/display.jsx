@@ -17,10 +17,10 @@ const geistMono = localFont({
 
 function People() {
   const info = {
-    id: 12345,
-    fullName: "Faustine Mniko",
-    zone: "TANZANIA HEAD OFFICE",
-    passport: "passport.jpg",
+    id: 1,
+    fullName: "",
+    zone: "",
+    passport: "",
   };
   return (
     <>

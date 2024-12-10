@@ -1,6 +1,7 @@
+import axios from "axios";
 import { useRef, useState, useEffect } from "react";
 
-export default function PhotoCapture({ setPassport, setState }) {
+export default function PhotoCapture({ setPassport, setState,user }) {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [isCameraActive, setIsCameraActive] = useState(false);
@@ -88,6 +89,12 @@ export default function PhotoCapture({ setPassport, setState }) {
         );
         setPassport(data.fileName);
         setUploadedFileName(data.fileName); // Save the file name
+
+        axios.post('/api/add',{
+          user:{
+            id:user.id,fullName:user.fullName,Zone:user.Zone,passport:data.fileName
+          }
+        })
         setState("kitambulisho");
         setCapturedPhoto(null); // Clear photo preview
       } else {

@@ -75,9 +75,9 @@ export default function Form() {
   };
   const [user, setUser] = useState({
     id: 12345,
-    fullName: "Faustine Mniko",
-    Zone: "TANZANIA HEAD OFFICE",
-    passport: "passport.jpg",
+    fullName: "",
+    Zone: "",
+    passport: "",
   });
 
   return (
@@ -166,7 +166,7 @@ export default function Form() {
         ) : (
           <>
             {state == "photo" ? (
-              <Photo setPassport={setPassport} setState={setState} />
+              <Photo setPassport={setPassport} setState={setState} user={user} />
             ) : (
               <People user={{ ...user, passport: passport }} />
             )}
